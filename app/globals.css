@@ -5,7 +5,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-:root {
+:root,
+[data-theme='light'] {
   --background: #8ECDE2;
   --foreground: #171717;
   --secondaryColor: #8FD7C7;
@@ -14,11 +15,20 @@
   --temp:#FFE0D8;
 }
 
+[data-theme='dark'] {
+  --background: #0F1931;
+  --foreground: #ededed;
+  --secondaryColor:#001A47;
+  --mainText: #E2D4BB;
+  --secondaryText:#C89768;
+  --temp:#594435;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --background: #0F1931;
     --foreground: #ededed;
-    --secondaryColor:##001A47;
+    --secondaryColor:#001A47;
     --mainText: #E2D4BB;
     --secondaryText:#C89768;
     --temp:#594435;

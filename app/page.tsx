@@ -3,6 +3,11 @@
 import { useState } from "react";
 import Window from "./templates/window";
 import Project from "./templates/project";
+import Image from "next/image";
+import icon from "./templates/srcAndImg/info_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
+import link from "./templates/srcAndImg/link_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
+import project from "./templates/srcAndImg/assignment_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
+import home from "./templates/srcAndImg/home_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 
 type View = "default" | "profilo" | "link" | "project";
 
@@ -11,10 +16,14 @@ export default function Home() {
 
   const getTitle = () => {
     switch (view) {
-      case "profilo": return "Profilo";
-      case "link": return "Links";
-      case "project": return "Projects";
-      default: return "Home";
+      case "profilo":
+        return "Profilo";
+      case "link":
+        return "Links";
+      case "project":
+        return "Projects";
+      default:
+        return "Home";
     }
   };
 
@@ -25,24 +34,27 @@ export default function Home() {
           {view === "default" && (
             <div className="flex flex-col items-center gap-8">
               <p className="text-gray-600">Select a category to explore:</p>
-              <div className="flex gap-4">
-                <button 
+              <div className="flex gap-6 justify-center">
+                <button
                   onClick={() => setView("profilo")}
-                  className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-all font-medium"
+                  className="base-button btn-primary"
                 >
-                  Profilo
+                  <Image src={icon} alt={"personal info"}></Image>
+                  <span>Profile</span>
                 </button>
-                <button 
+                <button
                   onClick={() => setView("link")}
-                  className="px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition-all font-medium"
+                  className="base-button btn-primary"
                 >
-                  Link
+                  <Image src={link} alt={"personal info"}></Image>
+                  <span>Links</span>
                 </button>
-                <button 
+                <button
                   onClick={() => setView("project")}
-                  className="px-6 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition-all font-medium"
+                  className="base-button btn-primary"
                 >
-                  Project
+                  <Image src={project} alt={"personal info"}></Image>
+                  <span>Projects</span>
                 </button>
               </div>
             </div>
@@ -51,21 +63,26 @@ export default function Home() {
           {view !== "default" && (
             <div className="mt-4">
               {view === "project" && (
-                <Project 
-                  projectName="Improve Profilo" 
+                <Project
+                  projectName="Improve Profilo"
                   skills={["React", "Next.js", "TypeScript", "Tailwind"]}
                   description="A modern portfolio platform built with templates."
                 >
-                  <p className="mt-2 text-sm text-gray-500 italic">This is a live preview of the project template.</p>
+                  <p className="mt-2 text-sm text-gray-500 italic">
+                    This is a live preview of the project template.
+                  </p>
                 </Project>
               )}
-              
-              <button 
-                onClick={() => setView("default")}
-                className="mt-8 text-blue-600 hover:underline flex items-center gap-2"
-              >
-                ← Back to Home
-              </button>
+
+              <div className="flex justify-center mt-8">
+                <button
+                  onClick={() => setView("default")}
+                  className="base-button btn-gray"
+                >
+                  <Image src={home} alt="home" />
+                  <span>Home</span>
+                </button>
+              </div>
             </div>
           )}
         </div>

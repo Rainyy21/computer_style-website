@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./templates/css/window.css";
 import "./templates/css/project.css";
+import "./templates/css/buttons.css";
+import Darkmode from "./templates/darkmode";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Darkmode>
+          {children}
+        </Darkmode>
       </body>
     </html>
   );

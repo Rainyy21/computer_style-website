@@ -30,8 +30,8 @@ export default function Window({ title, variant = "default", children }: WindowP
         )}
         
         {variant === "link" && (
-          <div className="link-view">
-            <button className="link-button">Click Here</button>
+          <div className="flex justify-center p-4">
+            <button className="base-button btn-primary">Click Here</button>
           </div>
         )}
 
