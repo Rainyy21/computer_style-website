@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import StarryBackground from "./StarryBackground";
-import darkModeIcon from "./srcAndImg/dark_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40(1).svg";
-import lightModeIcon from "./srcAndImg/light_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
+import CloudBackground from "./CloudBackground";
+const darkModeIcon = "/srcAndImg/dark_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40(1).svg";
+const lightModeIcon = "/srcAndImg/light_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 
 interface DarkmodeProps {
   children?: React.ReactNode;
@@ -39,7 +40,7 @@ export default function Darkmode({ children }: DarkmodeProps) {
 
   return (
     <div className="min-h-screen">
-      {theme === "dark" && <StarryBackground />}
+      {theme === "dark" ? <StarryBackground /> : <CloudBackground />}
       <div className="fixed top-4 right-4 z-50">
         <button
           onClick={toggleTheme}
@@ -49,8 +50,9 @@ export default function Darkmode({ children }: DarkmodeProps) {
           <Image
             src={theme === "light" ? lightModeIcon : darkModeIcon}
             alt={theme === "light" ? "Light Mode Icon" : "Dark Mode Icon"}
-            width={40}
-            height={40}
+            width={60}
+            height={60}
+            className={theme === "light" ? "drop-shadow-[0_0_12px_rgba(245,158,11,0.5)] transition-transform hover:scale-105" : "transition-transform hover:scale-105"}
           />
         </button>
       </div>

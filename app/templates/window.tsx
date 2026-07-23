@@ -21,14 +21,14 @@ export default function Window({ title, variant = "default", children }: WindowP
             <p>Profile Content</p>
           </div>
         )}
-        
+
         {variant === "project" && (
           <div className="project-view">
             {/* Placeholder for Project content */}
             <p>Project Details</p>
           </div>
         )}
-        
+
         {variant === "link" && (
           <div className="flex justify-center p-4">
             <button className="base-button btn-primary">Click Here</button>

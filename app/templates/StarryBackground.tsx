@@ -100,7 +100,14 @@ export default function StarryBackground({
       const dt = Math.min(ts - lastTime, 100);
       lastTime = ts;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Deep space gradient
+      const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      grad.addColorStop(0, "#0B0E14"); // Void black
+      grad.addColorStop(0.3, "#0F1931"); // Midnight blue
+      grad.addColorStop(0.6, "#1A2A4E"); // Deep navy
+      grad.addColorStop(1, "#2E1A47"); // Deep purple
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       for (const s of stars) {
         updateStar(s, dt);
