@@ -1,0 +1,8 @@
+{
+  "name": "Simon",
+  "title": "Student & Aspiring Developer",
+  "bio": "Passionate about building modern web applications, interactive interfaces, and learning software engineering principles.",
+  "education": "Computer science at Brooklyn College",
+  "skills": ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS", "Git"],
+  "avatarUrl": ""
+}

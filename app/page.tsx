@@ -4,7 +4,13 @@ import { useState } from "react";
 import Window from "./templates/window";
 import WindowPopUp from "./templates/windowPopUp";
 import Project from "./templates/project";
+import LinkItem from "./templates/link";
+import Profile from "./templates/profile";
 import Image from "next/image";
+
+import profileData from "@/data/profile.json";
+import projectsData from "@/data/projects.json";
+import linksData from "@/data/links.json";
 
 const icon = "/srcAndImg/info_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 const link = "/srcAndImg/link_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
@@ -47,8 +53,8 @@ export default function Home() {
       <Window title="Home" variant="default">
         <div className="p-6">
           <div className="flex flex-col items-center gap-8">
-            <h1 className="text-gray-600">Hi! I'm Simon</h1>
-            <p>Student and aspiring developer</p>
+            <h1 className="text-gray-600 text-5xl">Hi! I'm {profileData.name}</h1>
+            <p className="text-xl">{profileData.title}</p>
             <div className="flex gap-6 justify-center">
               <button onClick={() => togglePopup("profilo")} className="base-button btn-primary">
                 <Image src={icon} alt={"personal info"} width={40} height={40}></Image>
@@ -77,16 +83,42 @@ export default function Home() {
           onFocus={() => togglePopup(view)}
         >
           <div className="p-6">
+            {view === "profilo" && (
+              <Profile
+                name={profileData.name}
+                title={profileData.title}
+                bio={profileData.bio}
+                education={profileData.education}
+                skills={profileData.skills}
+                avatarUrl={profileData.avatarUrl}
+              />
+            )}
+
             {view === "project" && (
-              <Project
-                projectName="Profilo"
-                skills={["React", "Next.js", "TypeScript", "Tailwind"]}
-                description="A modern portfolio platform built with templates."
-              >
-                <p className="mt-2 text-sm text-gray-500 italic">
-                  This is a live preview of the project template.
-                </p>
-              </Project>
+              <div className="flex flex-col gap-4">
+                {projectsData.map((proj) => (
+                  <Project
+                    key={proj.id}
+                    projectName={proj.projectName}
+                    skills={proj.skills}
+                    description={proj.description}
+                  />
+                ))}
+              </div>
+            )}
+
+            {view === "link" && (
+              <div className="linkContainer">
+                {linksData.map((item) => (
+                  <LinkItem
+                    key={item.id}
+                    label={item.label}
+                    url={item.url}
+                    description={item.description}
+                    icon={item.icon}
+                  />
+                ))}
+              </div>
             )}
 
             {/* the close button(might need to remove it )*/}

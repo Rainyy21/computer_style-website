@@ -1,0 +1,23 @@
+[
+  {
+    "id": "github",
+    "label": "GitHub",
+    "url": "https://github.com",
+    "description": "Check out my open-source projects and code repositories",
+    "icon": "/srcAndImg/github.svg"
+  },
+  {
+    "id": "linkedin",
+    "label": "LinkedIn",
+    "url": "https://linkedin.com",
+    "description": "Connect with me professionally",
+    "icon": "/srcAndImg/linkedin.svg"
+  },
+  {
+    "id": "email",
+    "label": "Email Me",
+    "url": "mailto:example@domain.com",
+    "description": "Send me a message or query",
+    "icon": "/srcAndImg/mail_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg"
+  }
+]

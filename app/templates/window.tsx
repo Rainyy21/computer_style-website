@@ -14,7 +14,7 @@ export default function Window({ title, variant = "default", children }: WindowP
       <div className="title">
         <h1>{title}</h1>
       </div>
-      <div className="mainContent">
+      <div className="mainContent flex items-center justify-center">
         {variant === "profilo" && (
           <div className="profilo-view">
             {/* Placeholder for Profilo content */}

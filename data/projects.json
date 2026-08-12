@@ -1,0 +1,26 @@
+[
+  {
+    "id": "profilo",
+    "projectName": "Profilo",
+    "skills": ["React", "Next.js", "TypeScript", "Tailwind"],
+    "description": "A modern portfolio platform built with interactive desktop-style windows and templates."
+  },
+  {
+    "id": "Hackathon project",
+    "projectName": "Hackathon project createion",
+    "skills": ["gemini", "Next.js", "Tailwind"],
+    "description": "Developed a website using next.js and gemini. It will take a form that user fill out and gemini will make five project idea and user can choose one and go more in depth on the project through a chatbot."
+  },
+  {
+    "id": "School project",
+    "projectName": "BookLog Web app",
+    "skills": ["html", "css", "js"],
+    "description": "Developed a book tracking web app that stores book data in LocalStorage as JSON.\nBuilt dynamic JavaScript card rendering to display stored books in a responsive UI.\nImplemented client-side CRUD-style functionality for managing book entries"
+  },
+  {
+    "id": "home project",
+    "projectName": "Homelab Infrastructure",
+    "skills": ["proxmox", "linux", "wireguard", "NAS"],
+    "description": "Deployed a Proxmox-based virtualization server hosting multiple Linux VMs.\nConfigured NAS storage for centralized file management and backups.\nImplemented WireGuard VPN for secure remote access to the home network."
+  }
+]

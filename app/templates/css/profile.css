@@ -1,0 +1,85 @@
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profileAvatarContainer {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid var(--foreground);
+  box-shadow: 4px 4px 0px 0px var(--secondaryText);
+  overflow: hidden;
+  background: var(--secondaryColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profileAvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profileAvatarPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.profileHeaderDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profileName {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--secondaryText);
+}
+
+.profileTitleText {
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.profileBio {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.profileSectionTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--foreground);
+}
+
+.profileSkills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profileSkill {
+  background: var(--secondaryColor);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 2px solid var(--foreground);
+}
