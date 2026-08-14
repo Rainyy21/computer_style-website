@@ -15,7 +15,6 @@ import linksData from "@/data/links.json";
 const icon = "/srcAndImg/info_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 const link = "/srcAndImg/link_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 const project = "/srcAndImg/assignment_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
-const home = "/srcAndImg/home_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 
 type View = "profilo" | "link" | "project";
 
@@ -121,13 +120,6 @@ export default function Home() {
               </div>
             )}
 
-            {/* the close button(might need to remove it )*/}
-            <div className="mt-8 flex justify-center">
-              <button onClick={() => closePopup(view)} className="base-button btn-gray">
-                <Image src={home} alt="home" width={40} height={40} />
-                <span>Close Popup</span>
-              </button>
-            </div>
           </div>
         </WindowPopUp>
       ))}
