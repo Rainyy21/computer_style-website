@@ -2,14 +2,14 @@
   {
     "id": "github",
     "label": "GitHub",
-    "url": "https://github.com",
+    "url": "https://github.com/Rainyy21",
     "description": "Check out my open-source projects and code repositories",
     "icon": "/srcAndImg/github.svg"
   },
   {
     "id": "linkedin",
     "label": "LinkedIn",
-    "url": "https://linkedin.com",
+    "url": "https://linkedin.com/in/simonzheng0",
     "description": "Connect with me professionally",
     "icon": "/srcAndImg/linkedin.svg"
   },
