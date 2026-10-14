@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "role": "Your Role Title",
+    "company": "Company Name",
+    "duration": "Jan 2025 – Present",
+    "description": "Describe what you did, technologies you used, and impact you made.",
+    "skills": ["React", "TypeScript"]
+  },
+  {
+    "id": 2,
+    "role": "Another Role",
+    "company": "Another Company",
+    "duration": "Jun 2024 – Dec 2024",
+    "description": "Describe your responsibilities and achievements here.",
+    "skills": ["Next.js", "Tailwind CSS"]
+  }
+]

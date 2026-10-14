@@ -85,8 +85,8 @@ export default function CloudBackground({ count = 8 }: CloudBackgroundProps) {
       const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
       grad.addColorStop(0, "#73C2FB"); // Maya Blue
       grad.addColorStop(0.4, "#A1E3D8"); // Fresh Mint
-      grad.addColorStop(0.7, "#FFD1DC"); // Soft Pink
-      grad.addColorStop(1, "#FFE0D8"); // Warm Peach
+      grad.addColorStop(0.7, "#FFE4B5"); // Warm Sand
+      grad.addColorStop(1, "#FFF8ED"); // Sunlit Cream
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 

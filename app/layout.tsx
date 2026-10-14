@@ -6,6 +6,8 @@ import "./templates/css/project.css";
 import "./templates/css/buttons.css";
 import "./templates/css/link.css";
 import "./templates/css/profile.css";
+import "./templates/css/experience.css";
+import "./templates/css/skills.css";
 import Darkmode from "./templates/darkmode";
 
 const geistSans = Geist({

@@ -1,8 +1,15 @@
 .projectContainer {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding-bottom: 24px;
+  gap: 10px;
+  padding-bottom: 16px;
+}
+
+@media (min-width: 640px) {
+  .projectContainer {
+    gap: 15px;
+    padding-bottom: 24px;
+  }
 }
 
 .projectContainer:not(:last-child) {
@@ -10,29 +17,55 @@
 }
 
 .projectTitle {
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: var(--secondaryText);
+  word-break: break-word;
+}
+
+@media (min-width: 640px) {
+  .projectTitle {
+    font-size: 2rem;
+  }
 }
 
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 6px;
+}
+
+@media (min-width: 640px) {
+  .skills {
+    gap: 10px;
+  }
 }
 
 .skill {
   background: var(--secondaryColor);
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 600;
   border: 2px solid var(--foreground);
 }
 
+@media (min-width: 640px) {
+  .skill {
+    padding: 5px 12px;
+    font-size: 0.85rem;
+  }
+}
+
 .description {
   line-height: 1.6;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 640px) {
+  .description {
+    font-size: 1.1rem;
+  }
 }
 
 .projectChildren {

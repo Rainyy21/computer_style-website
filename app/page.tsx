@@ -11,6 +11,8 @@ import Image from "next/image";
 import profileData from "@/data/profile.json";
 import projectsData from "@/data/projects.json";
 import linksData from "@/data/links.json";
+import experienceData from "@/data/experience.json";
+import skillsData from "@/data/skills.json";
 
 const icon = "/srcAndImg/info_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 const link = "/srcAndImg/link_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
@@ -47,14 +49,14 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 relative">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-16 lg:p-24 relative">
       {/* Home Window - Always Visible */}
       <Window title="Home" variant="default">
-        <div className="p-6">
-          <div className="flex flex-col items-center gap-8">
-            <h1 className="text-gray-600 text-5xl">Hi! I'm {profileData.name}</h1>
-            <p className="text-xl">{profileData.title}</p>
-            <div className="flex gap-6 justify-center">
+        <div className="p-3 sm:p-6">
+          <div className="flex flex-col items-center gap-4 sm:gap-8">
+            <h1 className="text-gray-600 text-2xl sm:text-3xl md:text-5xl text-center">Hi! I'm {profileData.name}</h1>
+            <p className="text-base sm:text-xl text-center">{profileData.title}</p>
+            <div className="flex flex-wrap gap-3 sm:gap-6 justify-center">
               <button onClick={() => togglePopup("profilo")} className="base-button btn-primary">
                 <Image src={icon} alt={"personal info"} width={40} height={40}></Image>
                 <span>Profile</span>
@@ -90,6 +92,8 @@ export default function Home() {
                 education={profileData.education}
                 skills={profileData.skills}
                 avatarUrl={profileData.avatarUrl}
+                experience={experienceData}
+                skillCategories={skillsData.categories}
               />
             )}
 

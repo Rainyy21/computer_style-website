@@ -1,6 +1,6 @@
 import React from "react";
 
-type WindowVariant = "profilo" | "project" | "link" | "default";
+type WindowVariant = "profilo" | "project" | "link" | "experience" | "skills" | "default";
 
 interface WindowProps {
   title: string;

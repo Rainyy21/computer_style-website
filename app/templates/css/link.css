@@ -1,22 +1,37 @@
 .linkContainer {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
+}
+
+@media (min-width: 640px) {
+  .linkContainer {
+    gap: 12px;
+  }
 }
 
 .linkCard {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 14px 18px;
+  gap: 10px;
+  padding: 10px 12px;
   background-color: var(--secondaryColor);
   border: 2px solid var(--foreground);
-  border-radius: 12px;
+  border-radius: 10px;
   color: white;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 4px 4px 0px 0px var(--foreground);
+  box-shadow: 3px 3px 0px 0px var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .linkCard {
+    gap: 16px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px 0px var(--foreground);
+  }
 }
 
 .linkCard:hover {
@@ -40,19 +55,45 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  min-width: 0;
 }
 
 .linkLabel {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .linkLabel {
+    font-size: 1.1rem;
+  }
 }
 
 .linkDescription {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   opacity: 0.9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .linkDescription {
+    font-size: 0.875rem;
+  }
 }
 
 .linkArrow {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: bold;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .linkArrow {
+    font-size: 1.25rem;
+  }
 }

@@ -1,0 +1,100 @@
+.experienceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 16px;
+}
+
+@media (min-width: 640px) {
+  .experienceContainer {
+    gap: 14px;
+    padding-bottom: 24px;
+  }
+}
+
+.experienceContainer:not(:last-child) {
+  border-bottom: 2px dashed var(--secondaryColor);
+}
+
+.experienceHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.experienceRole {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--secondaryText);
+  word-break: break-word;
+}
+
+@media (min-width: 640px) {
+  .experienceRole {
+    font-size: 2rem;
+  }
+}
+
+.experienceCompany {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+@media (min-width: 640px) {
+  .experienceCompany {
+    font-size: 1.15rem;
+  }
+}
+
+.experienceDuration {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+@media (min-width: 640px) {
+  .experienceDuration {
+    font-size: 0.95rem;
+  }
+}
+
+.experienceDescription {
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 640px) {
+  .experienceDescription {
+    font-size: 1.1rem;
+  }
+}
+
+.experienceSkills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@media (min-width: 640px) {
+  .experienceSkills {
+    gap: 10px;
+  }
+}
+
+.experienceSkill {
+  background: var(--secondaryColor);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 2px solid var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .experienceSkill {
+    padding: 5px 12px;
+    font-size: 0.85rem;
+  }
+}

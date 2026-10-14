@@ -41,18 +41,18 @@ export default function Darkmode({ children }: DarkmodeProps) {
   return (
     <div className="min-h-screen">
       {theme === "dark" ? <StarryBackground /> : <CloudBackground />}
-      <div className="fixed top-4 right-4 z-50">
+      <div className="fixed top-2 right-2 sm:top-4 sm:right-4 z-50">
         <button
           onClick={toggleTheme}
-          className="p-2 transition-opacity hover:opacity-80"
+          className="p-1.5 sm:p-2 transition-opacity hover:opacity-80"
           aria-label={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
         >
           <Image
             src={theme === "light" ? lightModeIcon : darkModeIcon}
             alt={theme === "light" ? "Light Mode Icon" : "Dark Mode Icon"}
-            width={60}
-            height={60}
-            className={theme === "light" ? "drop-shadow-[0_0_12px_rgba(245,158,11,0.5)] transition-transform hover:scale-105" : "transition-transform hover:scale-105"}
+            width={40}
+            height={40}
+            className={`sm:w-[60px] sm:h-[60px] ${theme === "light" ? "drop-shadow-[0_0_12px_rgba(245,158,11,0.5)] transition-transform hover:scale-105" : "transition-transform hover:scale-105"}`}
           />
         </button>
       </div>

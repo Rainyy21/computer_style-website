@@ -1,7 +1,7 @@
 import React from "react";
 import { useDraggable } from "./ts/useDraggable";
 
-type WindowVariant = "profilo" | "project" | "link" | "default";
+type WindowVariant = "profilo" | "project" | "link" | "experience" | "skills" | "default";
 
 interface WindowProps {
   title: string;
@@ -20,11 +20,16 @@ export default function WindowPopUp({
   onFocus,
   style,
 }: WindowProps) {
-  const { pos, dragRef, onMouseDown } = useDraggable({ x: 200, y: 150 });
+  const { pos, dragRef, onMouseDown, onTouchStart } = useDraggable({ x: 200, y: 150 });
 
   const handleMouseDown = (e: React.MouseEvent) => {
     onFocus?.();
     onMouseDown(e);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    onFocus?.();
+    onTouchStart(e);
   };
 
   return (
@@ -43,6 +48,7 @@ export default function WindowPopUp({
       <div
         className="title flex items-center justify-between"
         onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
         style={{ cursor: "grab" }}
       >
         <h1 className="select-none">{title}</h1>

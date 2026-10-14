@@ -1,0 +1,16 @@
+{
+  "categories": [
+    {
+      "name": "Languages",
+      "items": ["TypeScript", "JavaScript", "HTML", "CSS", "Python"]
+    },
+    {
+      "name": "Frameworks & Libraries",
+      "items": ["React", "Next.js", "Tailwind CSS", "Node.js"]
+    },
+    {
+      "name": "Tools & Platforms",
+      "items": ["Git", "GitHub", "VS Code", "Vercel"]
+    }
+  ]
+}
