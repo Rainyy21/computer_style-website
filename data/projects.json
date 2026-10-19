@@ -6,10 +6,18 @@
     "description": "A modern portfolio platform built with interactive desktop-style windows and templates."
   },
   {
-    "id": "Hackathon project",
-    "projectName": "Hackathon project createion",
-    "skills": ["gemini", "Next.js", "Tailwind"],
-    "description": "Developed a website using next.js and gemini. It will take a form that user fill out and gemini will make five project idea and user can choose one and go more in depth on the project through a chatbot."
+    "id": "sparkbot",
+    "projectName": "SparkBot (SBUHACKS)",
+    "skills": ["Gemini", "Next.js", "Tailwind"],
+    "description": "Developed a website using Next.js and Gemini that generates five project ideas from a user-submitted form.\nUsers can pick an idea and explore it in depth through a Gemini-powered chatbot.",
+    "link": "https://github.com/Rainyy21/SBU-Hackathon"
+  },
+  {
+    "id": "simplify",
+    "projectName": "Simplify (CTP Hackathon)",
+    "skills": ["Flask", "Python", "HTML", "CSS", "Gemini"],
+    "description": "Built a full-stack data cleaning web app using HTML, CSS, and Flask.\nProcesses raw datasets by resolving missing values, outliers, duplicates, and unstandardized formats, followed by built-in data validation.\nIntegrated Gemini to convert data between formats and explain what was changed and fixed.",
+    "link": "https://github.com/Rainyy21/CTP-Hacks"
   },
   {
     "id": "School project",

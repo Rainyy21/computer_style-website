@@ -23,6 +23,25 @@
   word-break: break-word;
 }
 
+.projectLink {
+  align-self: flex-start;
+  padding: 6px 14px;
+  background-color: var(--secondaryColor);
+  border: 2px solid var(--foreground);
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 3px 3px 0px 0px var(--foreground);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projectLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0px 0px var(--foreground);
+}
+
 @media (min-width: 640px) {
   .projectTitle {
     font-size: 2rem;

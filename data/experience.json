@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "role": "Your Role Title",
-    "company": "Company Name",
-    "duration": "Jan 2025 – Present",
-    "description": "Describe what you did, technologies you used, and impact you made.",
-    "skills": ["React", "TypeScript"]
+    "role": "Front-end design",
+    "company": "Prenora Dynamics",
+    "duration": " May 2026 – Present",
+    "description": "Frontend Web Developer with hands-on experience modernizing legacy web platforms and improving accessibility. Proven track record of migrating static architectures to dynamic database-driven systems and engineering custom frontend components that elevate user engagement and streamline content workflows.",
+    "skills": ["Wix"]
   },
   {
     "id": 2,
-    "role": "Another Role",
-    "company": "Another Company",
-    "duration": "Jun 2024 – Dec 2024",
-    "description": "Describe your responsibilities and achievements here.",
-    "skills": ["Next.js", "Tailwind CSS"]
+    "role": "Data Science Fellow",
+    "company": "CUNY Tech Prep",
+    "duration": "Jul 2026 – Present",
+    "description": "Apply in-demand technologies like Python, SQL, Pandas, scikit-learn, and Hugging Face as well as industry best practices for exploratory data analysis (EDA), feature engineering, statistical analysis, data visualization, LLMs, RAGs, vector databases, and generative AI applications.",
+    "skills": ["SQL", "Python", "Pandas", "scikit-learn", "Hugging Face"]
   }
 ]

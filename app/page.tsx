@@ -99,12 +99,13 @@ export default function Home() {
 
             {view === "project" && (
               <div className="flex flex-col gap-4">
-                {projectsData.map((proj) => (
+                {(projectsData as { id: string; projectName: string; skills: string[]; description: string; link?: string }[]).map((proj) => (
                   <Project
                     key={proj.id}
                     projectName={proj.projectName}
                     skills={proj.skills}
                     description={proj.description}
+                    link={proj.link}
                   />
                 ))}
               </div>
