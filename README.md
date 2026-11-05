@@ -34,11 +34,19 @@ To preview a specific weather condition, add `?weather=` to the URL with one of 
 
 ## Running with Docker
 
+Production (optimized build):
+
 ```bash
-docker compose up --build
+docker compose up -d --build
 ```
 
-The site is served on port 3000.
+Development (live reload from your source files):
+
+```bash
+docker compose -f docker-compose.dev.yml up
+```
+
+Both serve the site on port 3000.
 
 ## Updating content
 
@@ -50,4 +58,4 @@ The site is served on port 3000.
 | `data/projects.json` | Project cards |
 | `data/links.json` | GitHub, LinkedIn, and email links |
 
-The résumé button links to `public/resume.pdf`.
+The résumé button links to `public/SimonZhengResume.pdf` (set by `resumeUrl` in `data/profile.json`).

@@ -1,6 +1,9 @@
+# Production: builds the optimized image from the Dockerfile
+# Run with: docker compose up -d --build
 services:
   web:
     build: .
+    container_name: profilo
     ports:
       - "3000:3000"
     restart: unless-stopped

@@ -1,0 +1,12 @@
+# Local development: live reload from your source files
+# Run with: docker compose -f docker-compose.dev.yml up
+services:
+  web:
+    image: node:24-alpine
+    working_dir: /app
+    command: sh -c "npm ci && npm run dev"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
