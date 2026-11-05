@@ -8,7 +8,7 @@ My personal portfolio, designed like a desktop: profile, projects, and links ope
 ## Features
 
 - **Desktop-style windows**: each section opens as a draggable window you can bring to the front or close.
-- **Live weather sky**: in light mode the background matches the visitor's current weather (clouds, rain, snow, fog, thunderstorms), using their approximate location and falling back to Brooklyn, NY.
+- **Live weather sky**: in light mode the background matches the visitor's current weather (clouds, rain, snow, fog, thunderstorms), using their approximate location if they allow it, and Brooklyn, NY otherwise.
 - **Dark mode**: a twinkling starry night sky; your choice is remembered between visits.
 - **Content from JSON**: profile, experience, skills, projects, and links all live in `data/`, so updating the site doesn't require touching components.
 
@@ -58,4 +58,4 @@ Both serve the site on port 3000.
 | `data/projects.json` | Project cards |
 | `data/links.json` | GitHub, LinkedIn, and email links |
 
-The résumé button links to `public/SimonZhengResume.pdf` (set by `resumeUrl` in `data/profile.json`).
+To show a résumé button, put the PDF in `public/` and set `resumeUrl` in `data/profile.json` (for example `"/SimonZhengResume.pdf"`). Leave it empty to hide the button.

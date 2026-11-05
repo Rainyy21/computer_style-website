@@ -21,6 +21,7 @@ export interface Weather {
 const DEFAULT_LOCATION = { city: "Brooklyn", latitude: 40.6782, longitude: -73.9442 };
 
 const CACHE_KEY = "weather";
+const CONSENT_KEY = "weatherLocationConsent";
 const CACHE_MS = 30 * 60 * 1000; // 30 minutes
 
 const CONDITIONS: WeatherCondition[] = ["clear", "cloudy", "overcast", "fog", "drizzle", "rain", "snow", "thunder"];
@@ -63,8 +64,8 @@ async function getLocation() {
   }
 }
 
-async function fetchWeather(): Promise<Weather> {
-  const { city, latitude, longitude } = await getLocation();
+async function fetchWeather(useVisitorLocation: boolean): Promise<Weather> {
+  const { city, latitude, longitude } = useVisitorLocation ? await getLocation() : DEFAULT_LOCATION;
   const res = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=weather_code,cloud_cover,temperature_2m`
   );
@@ -78,9 +79,9 @@ async function fetchWeather(): Promise<Weather> {
   };
 }
 
-function readCache(): Weather | null {
+function readCache(key: string): Weather | null {
   try {
-    const raw = sessionStorage.getItem(CACHE_KEY);
+    const raw = sessionStorage.getItem(key);
     if (!raw) return null;
     const { time, weather } = JSON.parse(raw);
     return Date.now() - time < CACHE_MS ? weather : null;
@@ -89,15 +90,32 @@ function readCache(): Weather | null {
   }
 }
 
-function writeCache(weather: Weather) {
+function writeCache(key: string, weather: Weather) {
   try {
-    sessionStorage.setItem(CACHE_KEY, JSON.stringify({ time: Date.now(), weather }));
+    sessionStorage.setItem(key, JSON.stringify({ time: Date.now(), weather }));
+  } catch {}
+}
+
+// Whether the visitor allowed IP-based location: true, false, or null if they haven't chosen yet
+export function readLocationConsent(): boolean | null {
+  try {
+    const saved = localStorage.getItem(CONSENT_KEY);
+    return saved === null ? null : saved === "true";
+  } catch {
+    return null;
+  }
+}
+
+export function saveLocationConsent(allowed: boolean) {
+  try {
+    localStorage.setItem(CONSENT_KEY, String(allowed));
   } catch {}
 }
 
 // Returns null until the weather has loaded (or if it fails).
+// Only looks up the visitor's location when useVisitorLocation is true; otherwise uses DEFAULT_LOCATION.
 // Add ?weather=rain (or any condition) to the URL to preview a condition.
-export default function useWeather(): Weather | null {
+export default function useWeather(useVisitorLocation: boolean): Weather | null {
   const [weather, setWeather] = useState<Weather | null>(null);
 
   useEffect(() => {
@@ -108,23 +126,24 @@ export default function useWeather(): Weather | null {
       return;
     }
 
-    const cached = readCache();
+    const cacheKey = `${CACHE_KEY}:${useVisitorLocation ? "visitor" : "default"}`;
+    const cached = readCache(cacheKey);
     if (cached) {
       setWeather(cached);
       return;
     }
 
     let cancelled = false;
-    fetchWeather()
+    fetchWeather(useVisitorLocation)
       .then((w) => {
-        writeCache(w);
+        writeCache(cacheKey, w);
         if (!cancelled) setWeather(w);
       })
       .catch(() => {});
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [useVisitorLocation]);
 
   return weather;
 }

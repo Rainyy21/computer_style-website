@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import StarryBackground from "./StarryBackground";
 import CloudBackground from "./CloudBackground";
-import useWeather, { type WeatherCondition } from "./ts/useWeather";
+import useWeather, { readLocationConsent, saveLocationConsent, type WeatherCondition } from "./ts/useWeather";
 const darkModeIcon = "/srcAndImg/dark_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40(1).svg";
 const lightModeIcon = "/srcAndImg/light_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 
@@ -26,14 +26,22 @@ interface DarkmodeProps {
 export default function Darkmode({ children }: DarkmodeProps) {
   const [theme, setTheme] = useState<string>("light");
   const [mounted, setMounted] = useState(false);
-  const weather = useWeather();
+  // null = visitor hasn't chosen yet, so the banner is shown and the default city is used
+  const [locationConsent, setLocationConsent] = useState<boolean | null>(null);
+  const weather = useWeather(locationConsent === true);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(savedTheme);
+    setLocationConsent(readLocationConsent());
     setMounted(true);
   }, []);
+
+  const chooseLocationConsent = (allowed: boolean) => {
+    saveLocationConsent(allowed);
+    setLocationConsent(allowed);
+  };
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -55,10 +63,42 @@ export default function Darkmode({ children }: DarkmodeProps) {
     <div className="min-h-screen">
       {theme === "dark" ? <StarryBackground /> : <CloudBackground weather={weather} />}
       {theme === "light" && weather && (
-        <div className="fixed top-3 left-3 sm:top-5 sm:left-5 z-50 rounded-full bg-white/40 backdrop-blur-sm px-3 py-1 text-xs sm:text-sm text-gray-700 shadow-sm">
+        <button
+          onClick={() => setLocationConsent(null)}
+          title="Change location settings"
+          className="fixed top-3 left-3 sm:top-5 sm:left-5 z-50 rounded-full bg-white/40 backdrop-blur-sm px-3 py-1 text-xs sm:text-sm text-gray-700 shadow-sm hover:bg-white/60 transition-colors"
+        >
           {WEATHER_LABELS[weather.condition]}
           {weather.temperature !== undefined && ` · ${weather.temperature}°C`}
           {weather.city && ` · ${weather.city}`}
+        </button>
+      )}
+      {locationConsent === null && (
+        <div
+          role="dialog"
+          aria-label="Location for weather background"
+          className="fixed bottom-3 left-3 right-3 sm:left-auto sm:right-5 sm:bottom-5 sm:max-w-sm z-50 rounded-xl bg-white/85 backdrop-blur-sm p-4 text-sm text-gray-700 shadow-lg"
+        >
+          <p>
+            The background can match the weather where you are. To do that, your IP address is sent to{" "}
+            <a href="https://www.geojs.io" target="_blank" rel="noopener noreferrer" className="underline">GeoJS</a>{" "}
+            to estimate your city. It isn&apos;t stored or tracked. Otherwise, the weather in Brooklyn, NY is shown.
+          </p>
+          <div className="mt-3 flex justify-end gap-2">
+            <button
+              onClick={() => chooseLocationConsent(false)}
+              className="rounded-lg px-3 py-1.5 text-gray-600 hover:bg-gray-200/70 transition-colors"
+            >
+              No thanks
+            </button>
+            <button
+              onClick={() => chooseLocationConsent(true)}
+              className="rounded-lg px-3 py-1.5 text-white transition-[filter] hover:brightness-90"
+              style={{ backgroundColor: "var(--secondaryColor)" }}
+            >
+              Allow
+            </button>
+          </div>
         </div>
       )}
       <div className="fixed top-2 right-2 sm:top-4 sm:right-4 z-50">
