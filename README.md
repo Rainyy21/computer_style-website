@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Profilo
 
-## Getting Started
+My personal portfolio, designed like a desktop: profile, projects, and links open as draggable windows over an animated sky.
 
-First, run the development server:
+<!-- Add a screenshot: save one as public/screenshot.png and uncomment the line below -->
+<!-- ![Profilo screenshot](public/screenshot.png) -->
+
+## Features
+
+- **Desktop-style windows**: each section opens as a draggable window you can bring to the front or close.
+- **Live weather sky**: in light mode the background matches the visitor's current weather (clouds, rain, snow, fog, thunderstorms), using their approximate location and falling back to Brooklyn, NY.
+- **Dark mode**: a twinkling starry night sky; your choice is remembered between visits.
+- **Content from JSON**: profile, experience, skills, projects, and links all live in `data/`, so updating the site doesn't require touching components.
+
+## Tech stack
+
+- [Next.js 16](https://nextjs.org) (App Router) and React 19
+- TypeScript
+- Tailwind CSS 4
+- HTML Canvas for the animated backgrounds
+- [Open-Meteo](https://open-meteo.com) for weather and [GeoJS](https://www.geojs.io) for IP-based location (both free, no API key)
+- Docker for deployment
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To preview a specific weather condition, add `?weather=` to the URL with one of `clear`, `cloudy`, `overcast`, `fog`, `drizzle`, `rain`, `snow`, or `thunder`, for example: <http://localhost:3000/?weather=rain>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Running with Docker
 
-## Learn More
+```bash
+docker compose up --build
+```
 
-To learn more about Next.js, take a look at the following resources:
+The site is served on port 3000.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Updating content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| File | What it controls |
+|---|---|
+| `data/profile.json` | Name, title, bio, education, avatar, résumé link |
+| `data/experience.json` | Work and program experience |
+| `data/skills.json` | Skill categories shown in the profile |
+| `data/projects.json` | Project cards |
+| `data/links.json` | GitHub, LinkedIn, and email links |
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The résumé button links to `public/resume.pdf`.

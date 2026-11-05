@@ -21,8 +21,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Improve Profilo",
-  description: "A professional portfolio platform",
+  title: "Simon Zheng – Developer Portfolio",
+  description:
+    "Simon Zheng, a computer science student at Brooklyn College building web apps, data projects, and IT infrastructure.",
 };
 
 export default function RootLayout({

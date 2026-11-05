@@ -14,5 +14,13 @@
     "duration": "Jul 2026 – Present",
     "description": "Apply in-demand technologies like Python, SQL, Pandas, scikit-learn, and Hugging Face as well as industry best practices for exploratory data analysis (EDA), feature engineering, statistical analysis, data visualization, LLMs, RAGs, vector databases, and generative AI applications.",
     "skills": ["SQL", "Python", "Pandas", "scikit-learn", "Hugging Face"]
+  },
+  {
+    "id": 3,
+    "role": "Student",
+    "company": "TechBridge",
+    "duration": "Oct 2026 – Present",
+    "description": "Enrolled in an intensive IT training program covering computer building, networking, and cybersecurity for CompTIA certification. Built technical proficiency and teamwork skills through hands-on labs and collaborative peer discussions, balancing coursework with a rigorous schedule.",
+    "skills": ["Computer Hardware", "Networking", "Cybersecurity", "CompTIA"]
   }
 ]

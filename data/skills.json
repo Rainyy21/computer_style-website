@@ -2,15 +2,23 @@
   "categories": [
     {
       "name": "Languages",
-      "items": ["TypeScript", "JavaScript", "HTML", "CSS", "Python"]
+      "items": ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"]
     },
     {
       "name": "Frameworks & Libraries",
-      "items": ["React", "Next.js", "Tailwind CSS", "Node.js"]
+      "items": ["React", "Next.js", "Tailwind CSS", "Node.js", "Flask"]
+    },
+    {
+      "name": "Data & AI",
+      "items": ["Pandas", "scikit-learn", "Hugging Face", "Gemini API"]
+    },
+    {
+      "name": "Infrastructure & IT",
+      "items": ["Linux", "Docker", "Proxmox", "WireGuard", "NAS", "Networking"]
     },
     {
       "name": "Tools & Platforms",
-      "items": ["Git", "GitHub", "VS Code", "Vercel"]
+      "items": ["Git", "GitHub", "VS Code", "Vercel", "Wix"]
     }
   ]
 }

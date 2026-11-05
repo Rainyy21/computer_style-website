@@ -17,6 +17,7 @@ import skillsData from "@/data/skills.json";
 const icon = "/srcAndImg/info_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 const link = "/srcAndImg/link_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 const project = "/srcAndImg/assignment_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
+const resume = "/srcAndImg/description_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
 
 type View = "profilo" | "link" | "project";
 
@@ -69,6 +70,12 @@ export default function Home() {
                 <Image src={project} alt={"personal info"} width={40} height={40}></Image>
                 <span>Projects</span>
               </button>
+              {profileData.resumeUrl && (
+                <a href={profileData.resumeUrl} target="_blank" rel="noopener noreferrer" className="base-button btn-primary">
+                  <Image src={resume} alt={"resume"} width={40} height={40}></Image>
+                  <span>Résumé</span>
+                </a>
+              )}
             </div>
           </div>
         </div>

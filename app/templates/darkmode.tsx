@@ -4,8 +4,20 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import StarryBackground from "./StarryBackground";
 import CloudBackground from "./CloudBackground";
+import useWeather, { type WeatherCondition } from "./ts/useWeather";
 const darkModeIcon = "/srcAndImg/dark_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40(1).svg";
 const lightModeIcon = "/srcAndImg/light_mode_40dp_E3E3E3_FILL1_wght400_GRAD0_opsz40.svg";
+
+const WEATHER_LABELS: Record<WeatherCondition, string> = {
+  clear: "☀️ Clear",
+  cloudy: "⛅ Cloudy",
+  overcast: "☁️ Overcast",
+  fog: "🌫️ Fog",
+  drizzle: "🌦️ Drizzle",
+  rain: "🌧️ Rain",
+  snow: "❄️ Snow",
+  thunder: "⛈️ Thunderstorm",
+};
 
 interface DarkmodeProps {
   children?: React.ReactNode;
@@ -14,6 +26,7 @@ interface DarkmodeProps {
 export default function Darkmode({ children }: DarkmodeProps) {
   const [theme, setTheme] = useState<string>("light");
   const [mounted, setMounted] = useState(false);
+  const weather = useWeather();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
@@ -40,7 +53,14 @@ export default function Darkmode({ children }: DarkmodeProps) {
 
   return (
     <div className="min-h-screen">
-      {theme === "dark" ? <StarryBackground /> : <CloudBackground />}
+      {theme === "dark" ? <StarryBackground /> : <CloudBackground weather={weather} />}
+      {theme === "light" && weather && (
+        <div className="fixed top-3 left-3 sm:top-5 sm:left-5 z-50 rounded-full bg-white/40 backdrop-blur-sm px-3 py-1 text-xs sm:text-sm text-gray-700 shadow-sm">
+          {WEATHER_LABELS[weather.condition]}
+          {weather.temperature !== undefined && ` · ${weather.temperature}°C`}
+          {weather.city && ` · ${weather.city}`}
+        </div>
+      )}
       <div className="fixed top-2 right-2 sm:top-4 sm:right-4 z-50">
         <button
           onClick={toggleTheme}
